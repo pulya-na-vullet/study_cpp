@@ -10,5 +10,6 @@ int main()
     var1 = var1 + 5;
     cout << "\n4:" << var1 << endl;
     cout << "\n5:" << var1;
+    cout << "\n5:" << var1;
     return 0;
 }
