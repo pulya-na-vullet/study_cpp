@@ -1,0 +1,96 @@
+git <Команда> --help
+
+git init
+touch example.txt создание файла с раширением txt
+git add *.c
+git add . добавление всех файлов репозитория
+git add --all для всех поддиректорий
+git add LICENSE
+git commit -m 'первый локальный комит'
+git config --global user.name "[name]"
+git config --global.user.email "[email address]"
+git config --global.color.ui auto
+git config --global core.editor "[program]"
+
+
+https://git-scm.com/book/ru/v2/Git-на-сервере-Генерация-открытого-SSH-ключа
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+git clone 'URL' 'путь к папке куда сохраняем'
+git status
+git --version
+git commit -m 'текстовый коммент что было сделано, обязательный коммит' (--amend)
+cat .gitignore
+*.a игнорирование файлов
+*.a !lib.a игнорирует все кроме lib.add
+/TODO игнорирование корневого файла, а не все файлы subdir/TODO
+build/ игнорировать все файлы в папке build
+doc/*.txt игнор doc/note.txt а не doc/sub/note.txt
+git dif показывает все удаленые и добавленные строки в программу но не проиндексированнные
+git dif --staged  сравнение проиндексир с содержимым последней фиксации
+git diff --cadhed покажет проиндексированое
+
+ls 
+ls -a
+cd 
+.. cd выход на уровень выше
+mkdir testdir создание новой папки
+cp test.txt test_copy.txt копирование файла
+mv test.txt test_copy.txt изменение названия файла
+echo "hello"
+echo "hello" > test_copy.txt записать hello  в файл
+cat test_original.txt посмотреть содержимое файла
+rm test_original.txt навсегда удалить содержимое
+rm -R Testdir навсегда удалить все содержимое папки
+git remote -v посмотреть список подключеных репозиториев
+git remote rename name1 name2 переименовка так же работате и с удаленными ветками
+git remote add orign http...копировать в гитхаб ссылку оригинального репозитория или еще пример add origin git@github.com:myuser/project.git
+git remote show orign
+git add readme.md добавление фиксации файла readme.md
+git log просмотр истории коммитов (-p --stat --shortstat --name-only --name-status --abbrev-commit --relative-date --graph --pretty)
+                                  (-(n) --science, --after / --author --committer --grep -s)
+git log --oneline сокращенно
+git show 657ab4c конкретный комит
+git reset HEAD~1 отмена последнего коммита
+git clean -df для удаления всех файлов не относящихся к проекту (не добавленых через add)
+git reflog просмотр истории действий
+git revert отмена действий коммита
+git restore сброс состояний файла на указанное
+git branch посмотреть имеющиеся ветки
+git branch dev создание новой ветки dev
+git checkout 'dev' перемещение в ветку dev
+смена веток = смене файлов
+git branch dev-master master создание ветки dev-vfcnth с точкой старта мастер - создается идентичная ветка мастеру
+git checkout -b dev-master одновременное переключение и создание ветки дев мастер
+git push загружает все измененияна компе обратно в репозиторий
+git push -f если вы уверены, что хотите перезаписать файлы в удаленном репозитории несмотря на конфликт версий
+git stash иногда возникает необходимость отложить ваши текущие изменения и поработать над файлами, которые находятся в удаленном репозитории
+git push -u github master ключ -u используется для того, чтобы установить связь между удаленным репозиторием github и вашей веткой master. 
+Все дальнейшие изменения вы можете переносить на удаленный репозиторий упрощенной командой:
+git pull скачать последние обновления ветки
+ssh-keygen генерация ключа (выбираем дирректорию и пароль)
+cat .(вставляем строку).ssh/id_rsa.pub показываем содержимое ключа которое буем копировать в гитхаб
+Если вы уверены, что хотите перезаписать локальные файлы, файлами из удаленного репозитория то выполните команды:
+git fetch --all извлечение данных из всех удаленных файлов во всех репазиториях
+git reset --hard github/master
+
+git log --pretty=oneline
+git tag -a v1.0 657ab4c
+git show v1.0
+
+алиасы:
+git config --global alias.co checkout и.т.д
+
+git config --global alias.unstage 'reset HEAD'
+эквивалентно теперь:
+git unstage fileA
+git reset HEAD fileA
+
+команда последних коммитов:
+git config --global alias.last 'log -1 HEAD'
+получим:
+git last
+
+git log --oneline --decorate узнать куда нацелены указатели веток, ветка мастер и тестинг находятся рядом 657ab4c
+
+https://translated.turbopages.org/proxy_u/en-ru.ru.79c51200-63038346-5cc1dc88-74722d776562/https/code.visualstudio.com/docs/editor/GitHub
